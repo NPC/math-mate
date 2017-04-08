@@ -1,24 +1,43 @@
-.App {
+body {
+  color: #fff;
+  background-color: #444;
+}
+
+a,
+a:visited {
+  color: #77F;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-container {
+  padding: 50px;
+}
+
+.math-question,
+.result {
+  padding: 40px 0;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.math-question .correct {
+  color: #7F7;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.math-question .wrong {
+  color: #F77;
 }
 
-.App-intro {
-  font-size: large;
+.math-question form > * {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.math-question .answer {
+  width: 80px;
 }
