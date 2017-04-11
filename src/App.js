@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="page-container">
-        <MathTest total="5" />
+        <MathTest total="10" />
       </div>
     );
   }

@@ -1,11 +1,11 @@
 body {
   color: #fff;
-  background-color: #444;
+  background-color: #333;
 }
 
 a,
 a:visited {
-  color: #77F;
+  color: #8AF;
   text-decoration: none;
 }
 
@@ -19,7 +19,7 @@ a:hover {
 
 .math-question,
 .result {
-  padding: 40px 0;
+  padding: 80px 0;
   text-align: center;
 }
 
@@ -33,11 +33,15 @@ a:hover {
 
 .math-question form > * {
   display: inline-block;
-  margin: 0 5px;
-  font-size: 32px;
+  margin: 0 10px;
+  font-size: 54px;
   font-weight: bold;
 }
 
 .math-question .answer {
   width: 80px;
+}
+
+.result hr {
+  width: 30%;
 }

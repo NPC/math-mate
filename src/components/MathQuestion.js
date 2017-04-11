@@ -17,7 +17,7 @@ class MathQuestion extends Component {
     }
 
     onAnswer(e) {
-        const answer = parseInt(this.state.answer);
+        const answer = parseInt(this.state.answer, 10);
 
         if(!isNaN(answer)) {
             this.props.onAnswer(answer);

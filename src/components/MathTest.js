@@ -6,13 +6,47 @@ class MathTest extends Component {
     constructor(props) {
         super(props);
 
-        this.operations = ['+', '-', '*'];
+        // Operations to allow
+        this.operations = [
+            //'+', 
+            //'-', 
+            '*', 
+            '/'
+        ];
 
         this.state = this.getInitialState();
     }
 
-    rndOperand = () => Math.floor(Math.random() * 10 + 1)
-    rndOperation = () => this.operations[Math.floor(Math.random() * this.operations.length)]
+    rndOperation() {
+        return this.operations[Math.floor(Math.random() * this.operations.length)];
+    }
+
+    // Generand random operand, except for the specified value
+    rndOperand(notValue) {
+        let val;
+
+        do {
+            val = Math.floor(Math.random() * 10 + 1);
+        } while(val === notValue);
+
+        return val;
+    }
+
+    getOperands(operation) {
+        let operands = [];
+        
+        operands.push(this.rndOperand());
+        
+        operands.push(this.rndOperand(operation === '*' ? undefined : operands[0]));
+
+        if(operation === '-')
+            operands.sort().reverse();
+
+        if(operation === '/')
+            operands[0] *= operands[1];
+
+        return operands;
+    }
 
     getInitialState() {
         return {
@@ -46,9 +80,11 @@ class MathTest extends Component {
     }
 
     getNextQuestion() {
+        let operation = this.rndOperation();
+        
         return {
-            operands: [ this.rndOperand(), this.rndOperand() ],
-            operation: this.rndOperation()
+            operands: this.getOperands(operation),
+            operation
         };
     }
 
@@ -82,7 +118,7 @@ class MathTest extends Component {
     showQuestionOrResult() {
         if(this.state.currentQuestion <= this.state.totalQuestions) {
             return <div>
-                <div class="stats">
+                <div className="stats">
                     Question {this.state.currentQuestion} of {this.state.totalQuestions}
                     <br/>
                     (Correct answers: {this.state.correctAnswers})
