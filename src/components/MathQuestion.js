@@ -17,13 +17,13 @@ class MathQuestion extends Component {
     }
 
     onAnswer(e) {
+        e.preventDefault();
+
         const answer = parseInt(this.state.answer, 10);
 
         if(!isNaN(answer)) {
             this.props.onAnswer(answer);
         }
-
-        e.preventDefault();
     }
 
     render() {
@@ -50,9 +50,9 @@ class MathQuestion extends Component {
                     />
                 </form>
 
-                <h2 className={prevAnswerHint.isCorrect ? 'correct' : 'wrong'}>
+                <h1 className={prevAnswerHint.isCorrect ? 'correct' : 'wrong'}>
                     {prevAnswerHint.message}
-                </h2>
+                </h1>
             </div>
         );
     }
